@@ -104,12 +104,16 @@ public class PedidoService {
             int quantidade = itemPedido.getQuantidade();
 
             restTemplate.put(
-                    "http://localhost:8080/api/produtos/atualizar/estoque/{produtoId}/{quantidade}",
+                    "http://localhost:8080/api/produto/atualizar/estoque/{produtoId}/{quantidade}",
                     null,
                     idProduto,
                     quantidade
             );
         }
+    }
+
+    public List<Pedido> buscarTodosPedidos() {
+        return pedidoRepository.findAll();
     }
 
 }
